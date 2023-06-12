@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta charset="UTF-8"/>
+      <script type="text/javascript" src="https://cdn.scaledrone.com/scaledrone.min.js"></script>
+      <script src="script.js"></script>
+      <style>
+         body{
+            background:#1C1C1C;
+            padding:0;
+            height:100vh;
+            width:100vw;
+            margin:0;
+            color:white;
+         }
+         video{
+            visibility:hidden;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:contain;
+            overflow:hidden;
+            border-radius:14px;
+            border:5px solid #1C1C1C;
+            margin:0;
+            box-sizing:border-box;
+         }
+         .fullscreen{
+            visibility:initial;
+            width:100vw;
+            height:133vw;
+         }
+         .thumbnail{
+            visibility:initial;
+            width:250px;
+            height:333px;
+            top:20px;
+            right:20px;
+            position:fixed;
+         }
+         .group{
+            visibility:initial;
+            width:50vw;
+            height:66vw;
+            float:left;
+         }
+         #log{
+            display:none;
+            width:100vw;
+            height:100vh;
+            position:fixed;
+            top:0;
+            left:0;
+            opacity:0.5;
+         }
+      </style>
+   </head>
+   <body>
+      <video id="localVideo" autoplay muted></video>
+      <video id="remoteVideo1" autoplay></video>
+      <video id="remoteVideo2" autoplay></video>
+      <video id="remoteVideo3" autoplay></video>
+      <textarea id="log"></textarea>
+   </body>
+</html>
