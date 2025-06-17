@@ -35,7 +35,9 @@ function initStream(){
    setVideoLayout();
 }
 function showLocalVideo(){
-   let video = document.createElement('video');
+   let video = document.getElementById('local');
+   if(video) return;
+   video = document.createElement('video');
    video.setAttribute('id', 'local');
    video.setAttribute('autoplay', '');
    video.setAttribute('muted', '');
@@ -56,13 +58,12 @@ function addMember(member){
       onLog('Stream de ' + member);
       const stream = event.streams[0];
       let video = document.getElementById(member);
-      if(!video && confirm('Recebendo uma chamada. Deseja atender?')){
+      if(!video){
          video = document.createElement('video');
          video.setAttribute('id', member);
          video.setAttribute('autoplay', '');
          showLocalVideo();
          document.body.appendChild(video);
-         //video.srcObject = stream;
       }
       video.srcObject = stream;
       setVideoLayout();
