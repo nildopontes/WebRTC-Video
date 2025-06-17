@@ -53,10 +53,12 @@ function addMember(member){
    pcn.ontrack = event => {
       onLog('Stream de ' + member);
       const stream = event.streams[0];
-      onLog(event);
-      let video = document.getElementById(member) || document.createElement('video');
-      video.setAttribute('id', member);
-      video.setAttribute('autoplay', '');
+      let video = document.getElementById(member);
+      if(!video){
+         video = document.createElement('video');
+         video.setAttribute('id', member);
+         video.setAttribute('autoplay', '');
+      }
       video.srcObject = stream;
       document.body.appendChild(video);
       setVideoLayout();
