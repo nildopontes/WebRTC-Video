@@ -40,7 +40,7 @@ function showLocalVideo(){
    video = document.createElement('video');
    video.setAttribute('id', 'local');
    video.setAttribute('autoplay', '');
-   video.setAttribute('muted', '');
+   video.volume = 0;
    video.style.transform = 'scaleX(-1)';
    video.srcObject = stream;
    document.body.appendChild(video);
