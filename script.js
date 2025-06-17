@@ -63,6 +63,7 @@ function addMember(member){
          video.setAttribute('id', member);
          video.setAttribute('autoplay', '');
          showLocalVideo();
+         initStream();
          document.body.appendChild(video);
       }
       video.srcObject = stream;
