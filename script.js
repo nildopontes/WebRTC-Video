@@ -63,7 +63,6 @@ function addMember(member){
          video.setAttribute('id', member);
          video.setAttribute('autoplay', '');
          showLocalVideo();
-         initStream();
          document.body.appendChild(video);
       }
       video.srcObject = stream;
@@ -87,7 +86,7 @@ function setVideoLayout(){
    });
    switch(remotes.length){
       case 0:{
-         if(local) local.className = 'fullscreen';
+         if(local) local.className = 'thumbnail';
          break;
       }
       case 1:{
