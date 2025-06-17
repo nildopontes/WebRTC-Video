@@ -74,7 +74,12 @@ navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(s => {
 // Ajusta o estilo dos videos conforme a quantidade de clientes online
 function setVideoLayout(){
    let local = document.getElementById('local');
-   switch(Object.keys(pc).length){
+   let remotes = [];
+   Object.keys(pc).forEach(key => {
+      let v = document.getElementById(key);
+      if(v) remotes.push(v);
+   });
+   switch(remotes.length){
       case 0:{
          if(local) local.className = 'fullscreen';
          break;
