@@ -66,7 +66,6 @@ function addMember(member){
 
 navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(s => {
    stream = s;
-   // Anexa o fluxo de vídeo local à conexão
    document.getElementById('call').removeAttribute('disabled');
 }, onLog);
 
@@ -149,7 +148,6 @@ drone.on('open', error => {
 function sendMessage(message, destinyId){
    if(destinyId == '') return;
    message.destiny = destinyId;
-   onLog('Message for ' + message.destiny);
    drone.publish({
       room: roomName,
       message
