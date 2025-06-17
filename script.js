@@ -31,6 +31,10 @@ function initStream(){
          });
       }).catch(err => onLog(err));
    });
+   showLocalVideo();
+   setVideoLayout();
+}
+function showLocalVideo(){
    let video = document.createElement('video');
    video.setAttribute('id', 'local');
    video.setAttribute('autoplay', '');
@@ -38,9 +42,7 @@ function initStream(){
    video.style.transform = 'scaleX(-1)';
    video.srcObject = stream;
    document.body.appendChild(video);
-   setVideoLayout();
 }
-
 function addMember(member){
    onLog(member + ' adicionado');
    let pcn = new RTCPeerConnection(configuration);
@@ -54,12 +56,13 @@ function addMember(member){
       onLog('Stream de ' + member);
       const stream = event.streams[0];
       let video = document.getElementById(member);
-      if(!video){
+      if(!video && confirm('Recebendo uma chamada. Deseja atender?')){
          video = document.createElement('video');
          video.setAttribute('id', member);
          video.setAttribute('autoplay', '');
+         showLocalVideo();
          document.body.appendChild(video);
-         //document.getElementById('call').click();
+         //video.srcObject = stream;
       }
       video.srcObject = stream;
       setVideoLayout();
