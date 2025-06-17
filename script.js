@@ -58,9 +58,10 @@ function addMember(member){
          video = document.createElement('video');
          video.setAttribute('id', member);
          video.setAttribute('autoplay', '');
+         document.body.appendChild(video);
+         //document.getElementById('call').click();
       }
       video.srcObject = stream;
-      document.body.appendChild(video);
       setVideoLayout();
    };
    pc[member] = pcn;
@@ -86,22 +87,22 @@ function setVideoLayout(){
       }
       case 1:{
          if(local) local.className = 'thumbnail';
-         Object.keys(pc).forEach(key => {
-            document.getElementById(key).className = 'fullscreen';
+         remotes.forEach(remote => {
+            remote.className = 'fullscreen';
          });
          break;
       }
       case 2:{
          if(local) local.className = 'group';
-         Object.keys(pc).forEach(key => {
-            document.getElementById(key).className = 'group';
+         remotes.forEach(remote => {
+            remote.className = 'group';
          });
          break;
       }
       case 3:{
          if(local) local.className = 'group';
-         Object.keys(pc).forEach(key => {
-            document.getElementById(key).className = 'group';
+         remotes.forEach(remote => {
+            remote.className = 'group';
          });
          break;
       }
