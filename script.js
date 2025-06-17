@@ -76,7 +76,7 @@ navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(s => {
    document.getElementById('call').removeAttribute('disabled');
 }, onLog);
 
-// Ajusta o estilo dos videos conforme a quantidade de clientes online
+// Ajusta o estilo dos vídeos conforme a quantidade de clientes online
 function setVideoLayout(){
    let local = document.getElementById('local');
    let remotes = [];
